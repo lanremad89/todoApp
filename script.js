@@ -115,3 +115,10 @@ todoItemsList.addEventListener('click', function(event) {
     deleteTodo(event.target.parentElement.getAttribute('data-key'));
   }
 });
+
+axios.get('https://jsonplaceholder.typicode.com/todos/')
+        .then(response => {
+            for(let i = 0; i < 5; i++){
+            todos.push(response.data[i])
+        }
+        })
