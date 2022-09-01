@@ -120,5 +120,6 @@ axios.get('https://jsonplaceholder.typicode.com/todos/')
         .then(response => {
             for(let i = 0; i < 5; i++){
             todos.push(response.data[i])
+            console.log(todos[i])
         }
         })
