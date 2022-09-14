@@ -116,10 +116,16 @@ todoItemsList.addEventListener('click', function(event) {
   }
 });
 
-axios.get('https://jsonplaceholder.typicode.com/todos/')
-        .then(response => {
-            for(let i = 0; i < 5; i++){
-            todos.push(response.data[i])
-            console.log(todos[i])
-        }
-        })
+// We need to check if the Todos array is empty before loading them from API
+if (!todos.length) {
+  axios.get('https://jsonplaceholder.typicode.com/todos/')
+  .then(response => {
+      for(let i = 0; i < 5; i++){
+        todos.push(response.data[i])
+        console.log(todos[i])
+      }
+
+      //After retrieving todos we need to render them
+      renderTodos(todos);
+  })
+}
