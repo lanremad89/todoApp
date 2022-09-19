@@ -16,10 +16,10 @@ todoForm.addEventListener('submit', function(event) {
 function addTodo(item) {
   // if item is not empty
   if (item !== '') {
-    // make a todo object, which has id, name, and completed properties
+    // make a todo object, which has id, title, and completed properties
     const todo = {
       id: Date.now(),
-      name: item,
+      title: item,
       completed: false
     };
 // then add it to todos array
@@ -55,7 +55,7 @@ function renderTodos(todos) {
     }
 li.innerHTML = `
       <input type="checkbox" class="checkbox" ${checked}>
-      ${item.name}
+      ${item.title}
       <button class="delete-button">X</button>
     `;
     // finally add the <li> to the <ul>
